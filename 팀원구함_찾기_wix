@@ -1,0 +1,45 @@
+//https://cheonuk.wixsite.com/danmyeong/blank-3
+//팀원구함_찾기
+
+import wixData from "wix-data";
+
+$w.onReady(()=>{
+	wixData.query('드롭다운란')
+	.find()
+	.then(res=>{
+		let options=[{"value":'','label':"All numbers"}];
+		options.push(...res.items.map(number => {
+			return {'value': number.name,'label':number.name};
+		}));
+		$w('#iNumber').options=options;
+	})
+});
+
+let lastFilterTitle;
+let lastFilterNumber;
+
+export function iTitle_keyPress(event, $w) {
+	filter($w('#iTitle').value,lastFilterNumber);
+}
+
+
+function filter(title, number){
+	if(lastFilterTitle !== title || lastFilterNumber !== number){
+		let newFilter=wixData.filter();
+		if (title)
+			newFilter=newFilter.contains('드롭다운란',title);
+		if (number)
+			newFilter=newFilter.contains('드롭다운란3',number);
+		$w('#dataset1').setFilter(newFilter);
+		lastFilterTitle=title;
+		lastFilterNumber=number;
+	}
+
+}
+
+
+
+export function iNumber_change(event,$w) {
+	filter(lastFilterTitle,$w('#iNumber').value); 
+	console.log($w('#iNumber').value);
+}
