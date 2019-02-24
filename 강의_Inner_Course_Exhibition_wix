@@ -1,0 +1,53 @@
+// 강의_Inner_Course_wix code
+// https://cheonuk.wixsite.com/danmyeong/draft-show-question
+
+import wixData from "wix-data";
+
+$w.onReady(()=>{
+	wixData.query('category')
+	.find()
+	.then(res=>{
+		let options=[{"value":'','label':"All numbers"}];
+		options.push(...res.items.map(number => {
+			return {'value': number.name,'label':number.name};
+		}));
+		$w('#iNumber').options=options;
+	})
+});
+
+let lastFilterTitle;
+let lastFilterNumber;
+let debounceTimer;
+
+export function iTitle_keyPress(event, $w) {
+	//Add your code for this event here:
+	if (debounceTimer){
+		clearTimeout(debounceTimer);
+		debounceTimer=undefined;
+	} 
+	debounceTimer=setTimeout(()=>{
+		filter($w('#iTitle').value,lastFilterNumber);
+	},200);
+}
+
+
+function filter(title, number){
+	if(lastFilterTitle !== title || lastFilterNumber !== number){
+		let newFilter=wixData.filter();
+		if (title)
+			newFilter=newFilter.contains('name',title);
+		if (number)
+			newFilter=newFilter.contains('category',number);
+		$w('#dataset1').setFilter(newFilter);
+		lastFilterTitle=title;
+		lastFilterNumber=number;
+	}
+
+}
+
+
+
+export function iNumber_change(event,$w) {
+	//Add your code for this event here:
+	filter(lastFilterTitle,$w('#iNumber').value); 
+}
