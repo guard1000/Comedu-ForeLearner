@@ -1,0 +1,170 @@
+// 강의제작페이지_wix code
+// https://cheonuk.wixsite.com/danmyeong/blank-4
+
+export function checkbox1_change(event) {
+	
+  	if ($w("#checkbox1").checked){
+		$w("#checkbox2").checked = false;
+      	$w('#group5').expand();
+		$w('#button2').expand();
+		$w('#group4').collapse();
+		$w('#button3').collapse();
+		
+    }
+    else{
+			$w('#group5').collapse();
+			$w('#button2').collapse();
+		}
+	if ($w("#checkbox6").checked){
+		$w('#button2').collapse();
+		$w('#button3').collapse();
+	}
+}
+
+export function checkbox2_change(event) {
+
+  	if ($w('#checkbox2').checked){
+		$w("#checkbox1").checked = false;
+		$w('#group4').expand();
+		$w('#button3').expand();
+		$w('#group5').collapse();
+		$w('#button2').collapse();
+    }
+    else{
+			$w('#group4').collapse();
+			$w('#button3').collapse();
+		}
+	if ($w("#checkbox6").checked){
+		$w('#button2').collapse();
+		$w('#button3').collapse();
+	}
+}
+
+
+
+export function checkbox5_change(event) {
+	//Add your code for this event here: 
+	if ($w("#checkbox5").checked){
+		$w("#checkbox6").checked = false;
+		$w('#text19').expand();
+		$w('#group1').expand();
+		$w('#group10').expand();
+		$w('#text23').collapse();
+		$w('#group7').collapse();
+		$w('#group6').collapse();
+		$w('#group8').collapse();
+		$w('#group9').collapse();
+		$w('#button4').collapse();
+		$w('#button5').collapse();
+		
+    }
+    else{
+		$w('#text23').expand();
+		$w('#text19').collapse();
+		$w('#group1').collapse();
+		$w('#group10').collapse();
+		$w('#group8').expand();
+		$w('#group9').expand();
+	
+		}
+	 	if ((!$w("#checkbox5").checked) && (!$w("#checkbox6").checked)){
+		$w('#text23').collapse();
+		$w('#text19').collapse();
+		$w('#group7').collapse();
+		$w('#group6').collapse();
+		$w('#group8').collapse();
+		$w('#group9').collapse();
+		$w('#group5').collapse();
+		$w('#group4').collapse();
+		$w('#group1').collapse();
+		$w('#group10').collapse();
+		$w('#button4').collapse();
+		$w('#button5').collapse();
+		$w('#button2').collapse();
+		$w('#button3').collapse();
+
+	}
+}
+
+export function checkbox6_change(event) {
+		if ($w("#checkbox6").checked){
+		$w("#checkbox5").checked = false;
+
+		$w('#text23').expand();
+		$w('#group8').expand();
+		$w('#group9').expand();
+		$w('#text19').expand();
+		$w('#group1').expand();
+		$w('#group10').expand();
+
+		$w('#button2').collapse();
+		$w('#button3').collapse();
+		
+    }
+    else{
+
+		$w('#button4').collapse();
+		$w('#button5').collapse();
+		$w('#text23').collapse();
+		$w('#group9').collapse();
+		$w('#group8').collapse();
+		$w('#group7').collapse();
+		$w('#group6').collapse();
+		}
+	if ($w("#checkbox6").checked){
+		$w('#button2').collapse();
+		$w('#button3').collapse();
+	}
+
+	 	if ((!$w("#checkbox5").checked) && (!$w("#checkbox6").checked)){
+		$w('#text23').collapse();
+		$w('#text19').collapse();
+		$w('#group7').collapse();
+		$w('#group6').collapse();
+		$w('#group8').collapse();
+		$w('#group9').collapse();
+		$w('#group5').collapse();
+		$w('#group4').collapse();
+		$w('#group1').collapse();
+		$w('#group10').collapse();
+		$w('#button4').collapse();
+		$w('#button5').collapse();
+		$w('#button2').collapse();
+		$w('#button3').collapse();
+
+	}
+}
+
+export function checkbox4_change(event) {
+	if ($w("#checkbox4").checked){
+		$w("#checkbox3").checked = false;
+      	$w('#group6').expand();
+		$w('#button4').expand();
+		$w('#group7').collapse();
+		$w('#button5').collapse();
+		
+    }
+    else{
+			$w('#group6').collapse();
+			$w('#button4').collapse();
+		}
+	if ($w("#checkbox6").checked){
+		$w('#button2').collapse();
+		$w('#button3').collapse();
+	}
+}
+
+export function checkbox3_change(event) {
+	if ($w("#checkbox3").checked){
+		$w("#checkbox4").checked = false;
+      	$w('#group7').expand();
+		$w('#button5').expand();
+		$w('#group6').collapse();
+		$w('#button4').collapse();
+		
+    }
+    else{
+			$w('#group7').collapse();
+			$w('#button5').collapse();
+		} 
+}
