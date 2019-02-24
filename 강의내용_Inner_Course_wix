@@ -1,0 +1,67 @@
+// 강의내용_Inner_Course_wix
+// 예시 페이지: https://cheonuk.wixsite.com/danmyeong/lectures-total/%EB%B3%B4%EC%95%88%EA%B8%B0%EC%B4%88---%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EB%B3%B4%EC%95%88---%EB%A0%88%EC%A7%80%EC%8A%A4%ED%8A%B8%EB%A6%AC
+
+import wixData from 'wix-data';
+
+
+export function dynamicDataset_onReady(event) {
+	let key = $w('#dynamicDataset').getCurrentItem().option1;
+	
+	if (!key){
+		$w('#quiz1').collapse();
+		$w('#quiz2').collapse();
+		$w('#quiz3').collapse();
+		$w('#quiz4').collapse();
+	}
+	$w('#button1').collapse();
+
+	if(!($w('#dynamicDataset').getCurrentItem().flag)){
+		$w('#group2').collapse();
+	}
+}
+
+
+
+$w.onReady(function () {
+	//TODO: write your page related code here...
+
+});
+
+export function input1_keyPress(event) {
+	let answer = $w('#dynamicDataset').getCurrentItem().answer;
+	let answer2 = $w('#dynamicDataset').getCurrentItem().answer2;
+
+	if(answer === $w('#input1').value){
+		$w('#correct1').expand();
+		$w('#wrong1').collapse();
+	}
+	else {
+
+		$w('#correct1').collapse();
+		$w('#wrong1').expand();
+	}
+
+	if(!($w('#dynamicDataset').getCurrentItem().flag) && answer === $w('#input1').value){
+		$w('#button1').expand();
+	}
+}
+
+export function input2_keyPress(event) {
+	let answer2 = $w('#dynamicDataset').getCurrentItem().answer2;
+	let answer = $w('#dynamicDataset').getCurrentItem().answer;
+
+
+	if(answer2 === $w('#input2').value){
+		$w('#correct2').expand();
+		$w('#wrong2').collapse();
+	}
+	else {
+
+		$w('#correct2').collapse();
+		$w('#wrong2').expand();
+	}
+
+	if(answer2 === $w('#input2').value && answer === $w('#input1').value){
+		$w('#button1').expand();
+	}
+}
